@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import { MotionConfig } from 'framer-motion';
-import { AuthProvider } from './contexts/AuthContext.jsx';
+import { AuthProvider } from '/src/contexts/AuthContext.jsx';
 import ProtectedRoute from './components/layout/ProtectedRoute.jsx';
 
 const Landing   = lazy(() => import('./pages/Landing.jsx'));
