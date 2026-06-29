@@ -5,7 +5,6 @@ import { MotionConfig } from 'framer-motion';
 import { AuthProvider } from './contexts/AuthContext.jsx';
 import ProtectedRoute from './components/layout/ProtectedRoute.jsx';
 
-// Lazy pages
 const Landing   = lazy(() => import('./pages/Landing.jsx'));
 const Login     = lazy(() => import('./pages/auth/Login.jsx'));
 const Signup    = lazy(() => import('./pages/auth/Signup.jsx'));
@@ -27,20 +26,18 @@ export default function App() {
     <MotionConfig reducedMotion="user" transition={{ duration: 0.2, ease: [0.4,0,0.2,1] }}>
       <AuthProvider>
         <BrowserRouter>
-          <Toaster position="top-right" richColors closeButton duration={4000}
-            toastOptions={{ style: { fontFamily:'Inter,system-ui,sans-serif', borderRadius:'12px', border:'1px solid #E2E8F0' } }}
-          />
+          <Toaster position="top-right" richColors closeButton duration={4000} />
           <Suspense fallback={<Loader />}>
             <Routes>
-              <Route path="/"        element={<Landing />} />
-              <Route path="/login"   element={<Login />} />
-              <Route path="/signup"  element={<Signup />} />
+              <Route path="/"       element={<Landing />} />
+              <Route path="/login"  element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
               <Route element={<ProtectedRoute />}>
-                <Route path="/app"            element={<Navigate to="/app/dashboard" replace />} />
-                <Route path="/app/dashboard"  element={<Dashboard />} />
-                <Route path="/app/run"        element={<Run />} />
-                <Route path="/app/pipeline"   element={<Pipeline />} />
-                <Route path="/app/settings"   element={<Settings />} />
+                <Route path="/app"           element={<Navigate to="/app/dashboard" replace />} />
+                <Route path="/app/dashboard" element={<Dashboard />} />
+                <Route path="/app/run"       element={<Run />} />
+                <Route path="/app/pipeline"  element={<Pipeline />} />
+                <Route path="/app/settings"  element={<Settings />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
