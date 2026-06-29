@@ -1,0 +1,10 @@
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+crewai==0.86.0
+crewai-tools==0.17.0
+langchain-groq==0.2.4
+langgraph==0.2.60
+supabase==2.10.0
+langfuse==2.58.1
+python-dotenv==1.0.1
+pydantic==2.9.2
